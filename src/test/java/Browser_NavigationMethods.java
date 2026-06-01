@@ -1,7 +1,7 @@
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class GoogleTest {
+public class Browser_NavigationMethods {
 
     // Browser & Navigation commands
     static void main(String[] args) throws InterruptedException {
