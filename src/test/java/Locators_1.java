@@ -28,7 +28,9 @@ public class Locators_1 {
         String PageText = driver.findElement(By.tagName("h2")).getText();
         System.out.println(PageText);
 
-        WebElement userNameField = driver.findElement(By.id("username"));
+        //WebElement userNameField = driver.findElement(By.id("username"));
+        //WebElement userNameField = driver.findElement(By.xpath("/html/body/div[2]/div/div/form/div[1]/div/input"));  --> Absolute XPATH
+        WebElement userNameField = driver.findElement(By.xpath("//input[@type='text']")); //Relative Xpath
         userNameField.click();
         userNameField.sendKeys("khjh");
         userNameField.clear();
