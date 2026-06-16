@@ -1,4 +1,4 @@
-package Assignments;
+package Assignments.Q1;
 
 
 import org.openqa.selenium.By;
