@@ -1,0 +1,18 @@
+TestNG ---> Test Next Generation.
+--> TestNG is a testing framework inspired from JUnit and NUnit but introducing some new functionalities that make it more powerful and easier to use.
+--> Helps us:
+    1. Organize testcases
+    2. Execute tests in sequences
+    3. Execute tests in parallel
+    4. Group testcases
+    5. Generate test reports
+    6. manage testdata
+    7. Run selected testcases using testng.xml.
+
+testng.xml ---> configuration file used to control the execution of testng testcases
+  It tells testng:
+    1. Which testcases to run
+    2. In which order to run them
+    3. How many times to run them
+    4. Which groups of testcases to run
+    5. Which parameters to pass to the test (browser, env, url, user credentials ,etcc....)

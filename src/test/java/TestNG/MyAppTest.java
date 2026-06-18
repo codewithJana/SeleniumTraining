@@ -36,17 +36,17 @@ public class MyAppTest {
         System.out.println("Application logout Successfull!!");
     }
 
-    @Test
+    @Test(groups = "Regression")
     public void searchProductTest(){
         System.out.println("Second testcase executed !!");
     }
 
-    @Test
+    @Test(groups = "Regression")
     public void creditCardpaymentTest(){
         System.out.println("First testcase executed !!");
     }
 
-    @Test
+    @Test(groups = "Smoke")
     public void addToCartTest(){
         System.out.println("Third testcase executed !!");
     }
