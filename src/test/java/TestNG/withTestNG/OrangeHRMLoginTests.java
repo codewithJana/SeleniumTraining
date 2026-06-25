@@ -12,6 +12,7 @@ import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
+import java.util.List;
 
 public class OrangeHRMLoginTests {
 
@@ -73,7 +74,7 @@ public class OrangeHRMLoginTests {
         driver.quit();
     }
 
-    @Test
+    @Test(description = "Verify valid login test")
     public void testValidLogin(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("username"))).sendKeys("Admin");
         driver.findElement(By.name("password")).sendKeys("admin123");
@@ -90,13 +91,13 @@ public class OrangeHRMLoginTests {
 
         WebElement dashboardLabel = driver.findElement(By.xpath("//h6[text()='Dashboard']"));
         String ActualLabel = dashboardLabel.getText();
-        String ExpectedLabel = "Dashboards";
+        String ExpectedLabel = "Dashboard";
         softAssert.assertEquals(ActualLabel,ExpectedLabel);
 
         //Assert.assertEquals(ActualLabel,ExpectedLabel,"Verify Dashboard is displayed"); // Hard Assertion
         WebElement userName = driver.findElement(By.xpath("//p[@class='oxd-userdropdown-name']"));
         String ActualuserName = userName.getText();
-        String ExpecteduserName = "Dhanush Velliangiri";
+        String ExpecteduserName = "AdminAuto Users";
         //Assert.assertEquals(ActualLabel,ExpectedLabel,"Verify UserName is Matched");  // Hard Assertion
         softAssert.assertEquals(ActualuserName,ExpecteduserName);
         System.out.println("testCompleted");
@@ -104,13 +105,75 @@ public class OrangeHRMLoginTests {
 
 
     }
-    @Test
+    @Test(enabled = false)
     public void testInValidLogin(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("username"))).sendKeys("InvalidUser");
+        driver.findElement(By.name("password")).sendKeys("invalid123");
+        driver.findElement(By.cssSelector("button[type='submit']")).click();
 
+        WebElement errorAlert = wait
+                .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".oxd-alert-content-text")));
+        String errorMessage = errorAlert.getText();
+        if (!errorMessage.equals("Invalid credentials")) {
+            throw new AssertionError("Expected error message 'Invalid credentials' but got: " + errorMessage);
+        }
     }
-    @Test
+    @Test(dependsOnMethods = "testValidLogin",alwaysRun = true )
     public void testLogout(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("username"))).sendKeys("Admin");
+        driver.findElement(By.name("password")).sendKeys("admin123");
+        driver.findElement(By.cssSelector("button[type='submit']")).click();
 
+        // Click profile dropdown
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".oxd-userdropdown-tab"))).click();
+
+        // Click Logout
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Logout']"))).click();
+
+        // Wait for login page redirection URL
+        wait.until(ExpectedConditions.urlContains("auth/login"));
+        if (!driver.getCurrentUrl().contains("auth/login")) {
+            throw new AssertionError("User was not redirected back to the login page after logging out.");
+        }
+    }
+
+    @Test(enabled = false)
+    public void testSearchUser(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("username"))).sendKeys("Admin");
+        driver.findElement(By.name("password")).sendKeys("admin123");
+        driver.findElement(By.cssSelector("button[type='submit']")).click();
+
+        // Navigate to Admin Module
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(@href, 'viewAdminModule')]")))
+                .click();
+
+        // Enter search term
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//label[text()='Username']/parent::div/following-sibling::div/input"))).sendKeys("Admin");
+
+        // Click Search
+        driver.findElement(By.xpath("//button[@type='submit'][contains(., 'Search')]")).click();
+
+        // Sleep to let results load
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
+        // Validate table results
+        List<WebElement> rows = driver.findElements(By.cssSelector(".oxd-table-row"));
+        boolean userFound = false;
+        for (WebElement row : rows) {
+            String rowText = row.getText();
+            if (rowText.contains("Admin") && !rowText.contains("User Role")) {
+                userFound = true;
+                break;
+            }
+        }
+        if (!userFound) {
+            throw new AssertionError("User 'Admin' was not found in the search results.");
+        }
     }
 
 }

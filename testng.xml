@@ -1,28 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test name = "Smoke">
-        <groups>
-            <run>
-                <include name="Smoke"/>
-            </run>
-        </groups>
-        <classes>
-            <class name="TestNG.MyAppTest">
-
-            </class>
-        </classes>
-    </test>
-    <test name = "Regression">
-        <groups>
-            <run>
-                <include name="Regression"/>
-            </run>
-        </groups>
-        <classes>
-            <class name="TestNG.MyAppTest">
-
-            </class>
-        </classes>
-    </test>
-</suite>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="D:/SDET_April/Selenium/Selenium_Project_withMaven/src/test/java/TestNG/withTestNG/OrangeHRMLoginTests.java"><classes><class name="TestNG.withTestNG.OrangeHRMLoginTests"><methods><include name="testValidLogin"/><include name="testInValidLogin"/><include name="testLogout"/><include name="testSearchUser"/></methods></class></classes></test></suite>

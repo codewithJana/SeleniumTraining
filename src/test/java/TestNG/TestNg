@@ -16,3 +16,11 @@ testng.xml ---> configuration file used to control the execution of testng testc
     3. How many times to run them
     4. Which groups of testcases to run
     5. Which parameters to pass to the test (browser, env, url, user credentials ,etcc....)
+
+dependsonMethod  -->
+     1. previous test should be executed before the current test case
+     2. If previous test case fails, current test case will be skipped
+
+alwaysRun  -->
+     1. If previous test case fails, current test case will be executed
+     2. no direct dependency
