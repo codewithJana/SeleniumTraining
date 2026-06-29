@@ -1,3 +1,5 @@
+package seleniumbasics;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 

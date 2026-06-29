@@ -3,19 +3,20 @@
 <suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Selenium_Project_withMaven(failed)">
     <classes>
-      <class name="TestNG.withTestNG.OrangeHRMLoginTests">
+      <class name="myProjectInTestNG.OrangeHRMLoginTest">
         <methods>
-          <include name="afterTest"/>
-          <include name="tearDown"/>
           <include name="beforeSuite"/>
-          <include name="afterClass"/>
-          <include name="afterSuite"/>
-          <include name="setUp"/>
+          <include name="afterTest"/>
           <include name="beforeTest"/>
+          <include name="setUp"/>
+          <include name="testInValidLogin"/>
+          <include name="afterSuite"/>
           <include name="testValidLogin"/>
           <include name="beforeClass"/>
+          <include name="tearDown"/>
+          <include name="afterClass"/>
         </methods>
-      </class> <!-- TestNG.withTestNG.OrangeHRMLoginTests -->
+      </class> <!-- myProjectInTestNG.OrangeHRMLoginTest -->
     </classes>
   </test> <!-- Selenium_Project_withMaven(failed) -->
 </suite> <!-- Failed suite [Default Suite] -->

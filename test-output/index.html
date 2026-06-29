@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
+                    <span class="method-stats">3 methods, 2 failed,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -103,7 +103,12 @@
                     <div class="method-list-content failed suite-Default_Suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_Suite" title="TestNG.withTestNG.OrangeHRMLoginTests" class="method navigator-link" hash-for-method="testValidLogin">testValidLogin</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_Suite" title="myProjectInTestNG.OrangeHRMLoginTest" class="method navigator-link" hash-for-method="testInValidLogin">testInValidLogin</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_Suite" title="myProjectInTestNG.OrangeHRMLoginTest" class="method navigator-link" hash-for-method="testValidLogin">testValidLogin</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_Suite -->
@@ -117,7 +122,7 @@
                     <div class="method-list-content passed suite-Default_Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_Suite" title="TestNG.withTestNG.OrangeHRMLoginTests" class="method navigator-link" hash-for-method="testLogout">testLogout</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_Suite" title="myProjectInTestNG.OrangeHRMLoginTest" class="method navigator-link" hash-for-method="testLogout">testLogout</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_Suite -->
@@ -135,24 +140,36 @@
           <div class="suite-Default_Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">TestNG.withTestNG.OrangeHRMLoginTests</span>
+              <span class="class-name">myProjectInTestNG.OrangeHRMLoginTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testInValidLogin">
+                  </a> <!-- testInValidLogin -->
+                  <span class="method-name">testInValidLogin</span>
+                  <div class="stack-trace">java.lang.AssertionError: Expected error message &apos;Invalid credentials&apos; but got: Invalid credentials
+	at myProjectInTestNG.OrangeHRMLoginTest.testInValidLogin(OrangeHRMLoginTest.java:51)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
                   <a name="testValidLogin">
                   </a> <!-- testValidLogin -->
                   <span class="method-name">testValidLogin</span>
                   <div class="stack-trace">java.lang.AssertionError: The following asserts failed:
-	expected [AdminAuto Users] but found [Youssef hassan]
-	at TestNG.withTestNG.OrangeHRMLoginTests.testValidLogin(OrangeHRMLoginTests.java:104)
+	expected [AdminAuto User] but found [mandaa User]
+	at myProjectInTestNG.OrangeHRMLoginTest.testValidLogin(OrangeHRMLoginTest.java:38)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
 	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
 ... Removed 24 stack frames
 </div> <!-- stack-trace -->
-                  <em>
-(Verify valid login test)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -160,7 +177,7 @@
           <div class="suite-Default_Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">TestNG.withTestNG.OrangeHRMLoginTests</span>
+              <span class="class-name">myProjectInTestNG.OrangeHRMLoginTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -184,7 +201,7 @@
 &lt;suite name=&quot;Default Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Selenium_Project_withMaven&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;TestNG.withTestNG.OrangeHRMLoginTests&quot;/&gt;
+      &lt;class name=&quot;myProjectInTestNG.OrangeHRMLoginTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Selenium_Project_withMaven --&gt;
 &lt;/suite&gt; &lt;!-- Default Suite --&gt;
@@ -224,20 +241,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'testLogout')
-data.setCell(0, 2, 'TestNG.withTestNG.OrangeHRMLoginTests')
-data.setCell(0, 3, 3331);
+data.setCell(0, 2, 'myProjectInTestNG.OrangeHRMLoginTest')
+data.setCell(0, 3, 3626);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'testValidLogin')
-data.setCell(1, 2, 'TestNG.withTestNG.OrangeHRMLoginTests')
-data.setCell(1, 3, 1973);
+data.setCell(1, 2, 'myProjectInTestNG.OrangeHRMLoginTest')
+data.setCell(1, 3, 1835);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'testInValidLogin')
+data.setCell(2, 2, 'myProjectInTestNG.OrangeHRMLoginTest')
+data.setCell(2, 3, 1577);
 window.suiteTableData['Default_Suite']= { tableData: data, tableDiv: 'times-div-Default_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 5 seconds</span>
+              <span class="suite-total-time">Total running time: 7 seconds</span>
               <div id="times-div-Default_Suite">
               </div> <!-- times-div-Default_Suite -->
             </div> <!-- times-div -->
@@ -252,18 +273,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">2 ignored methods</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">TestNG.withTestNG.OrangeHRMLoginTests</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">testInValidLogin</span>
-                <br/>
-                <span class="ignored-method-name">testSearchUser</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_Suite" class="panel">
@@ -272,56 +284,70 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">TestNG.withTestNG.OrangeHRMLoginTests</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">myProjectInTestNG.OrangeHRMLoginTest</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">beforeSuite</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-test before">
                 <span class="method-name">beforeTest</span>
-                <span class="method-start">12 ms</span>
+                <span class="method-start">10 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-class before">
                 <span class="method-name">beforeClass</span>
-                <span class="method-start">24 ms</span>
+                <span class="method-start">22 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">32 ms</span>
+                <span class="method-start">30 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">testValidLogin</span>
-                <span class="method-start">4481 ms</span>
+                <span class="method-start">3604 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">6470 ms</span>
+                <span class="method-name">tearDown([TestResult name=testValidLogin status=FAILURE method=OrangeHRMLoginTest.testValidLogin()[pri:1, ins...)</span>
+                <span class="method-start">5445 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">6746 ms</span>
+                <span class="method-start">5858 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testInValidLogin</span>
+                <span class="method-start">9324 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=testInValidLogin status=FAILURE method=OrangeHRMLoginTest.testInValidLogin()[pri:2,...)</span>
+                <span class="method-start">10902 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">11106 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testLogout</span>
-                <span class="method-start">9829 ms</span>
+                <span class="method-start">14456 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">13162 ms</span>
+                <span class="method-name">tearDown([TestResult name=testLogout status=SUCCESS method=OrangeHRMLoginTest.testLogout()[pri:3, instance:my...)</span>
+                <span class="method-start">18083 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">13271 ms</span>
+                <span class="method-start">18188 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-test after">
                 <span class="method-name">afterTest</span>
-                <span class="method-start">13272 ms</span>
+                <span class="method-start">18188 ms</span>
               </div> <!-- configuration-test after -->
               <div class="configuration-suite after">
                 <span class="method-name">afterSuite</span>
-                <span class="method-start">13329 ms</span>
+                <span class="method-start">18209 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
