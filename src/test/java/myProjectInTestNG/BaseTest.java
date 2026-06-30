@@ -5,6 +5,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
@@ -28,7 +29,7 @@ public class BaseTest {
 
     protected WebDriver driver;
     protected WebDriverWait wait;
-    String BASE_URL = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
+   //String BASE_URL = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
 
     @BeforeSuite
     public void beforeSuite(){
@@ -69,19 +70,21 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    @Parameters({"browser", "url"})
-    public void setUp(@Optional("chrome") String browser, @Optional("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login") String url){
+    @Parameters({"browser","url"})
+    public void setUp(@Optional("chrome") String browser,@Optional("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login") String url){
         System.out.println("Before Method");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         options.addArguments("--incognito");
 
-        if (browser.equalsIgnoreCase("chrome")) {
+        if(browser.equalsIgnoreCase("chrome")){
             driver = new ChromeDriver();
-        } else {
-            System.out.println("[@BeforeMethod] - Browser '" + browser + "' is not explicitly configured. Defaulting to ChromeDriver.");
-            driver = new ChromeDriver();
+        } else if (browser.equalsIgnoreCase("edge")) {
+            driver = new EdgeDriver();
+        }else {
+            driver = new ChromeDriver();  //default
         }
+
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

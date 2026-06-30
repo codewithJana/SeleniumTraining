@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <parameter name="browser" value="chrome"></parameter>
-
+    <parameter name="browser" value="edge"></parameter>
+    <parameter name="url" value="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"></parameter>
     <test verbose="2" preserve-order="true"
           name="D:/SDET_April/Selenium/Selenium_Project_withMaven/src/test/java/myProjectInTestNG/OrangeHRMLoginTest.java">
         <classes>
