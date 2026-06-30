@@ -7,9 +7,10 @@
         <methods>
           <include name="beforeSuite"/>
           <include name="afterTest"/>
-          <include name="beforeTest"/>
-          <include name="setUp"/>
           <include name="testInValidLogin"/>
+          <include name="setUp"/>
+          <include name="beforeTest"/>
+          <include name="testLogout"/>
           <include name="afterSuite"/>
           <include name="testValidLogin"/>
           <include name="beforeClass"/>

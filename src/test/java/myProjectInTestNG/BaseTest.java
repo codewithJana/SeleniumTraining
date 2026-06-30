@@ -67,17 +67,25 @@ public class BaseTest {
     public void beforeClass(){
         System.out.println("Before class" + this.getClass().getSimpleName());
     }
+
     @BeforeMethod
-    public void setUp(){
+    @Parameters({"browser", "url"})
+    public void setUp(@Optional("chrome") String browser, @Optional("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login") String url){
         System.out.println("Before Method");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         options.addArguments("--incognito");
 
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); //implicit wait
-        driver.get(BASE_URL);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10)); //explicit wait
+        if (browser.equalsIgnoreCase("chrome")) {
+            driver = new ChromeDriver();
+        } else {
+            System.out.println("[@BeforeMethod] - Browser '" + browser + "' is not explicitly configured. Defaulting to ChromeDriver.");
+            driver = new ChromeDriver();
+        }
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get(url);
     }
     @AfterMethod
     public void tearDown(ITestResult result) throws IOException {
