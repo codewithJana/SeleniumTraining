@@ -7,9 +7,9 @@
         <methods>
           <include name="beforeSuite"/>
           <include name="afterTest"/>
-          <include name="setUp"/>
-          <include name="testInValidLogin"/>
           <include name="beforeTest"/>
+          <include name="setUp"/>
+          <include name="testInValidLogin" invocation-numbers="0 1 2 3"/>
           <include name="afterSuite"/>
           <include name="testValidLogin"/>
           <include name="beforeClass"/>
