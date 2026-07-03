@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <parameter name="browser" value="edge"></parameter>
-    <parameter name="url" value="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"></parameter>
+    <listeners>
+        <listener class-name="testNGListeners.MyListeners"></listener>
+    </listeners>
     <test verbose="2" preserve-order="true"
-          name="D:/SDET_April/Selenium/Selenium_Project_withMaven/src/test/java/myProjectInTestNG/OrangeHRMLoginTest.java">
+          name="D:/SDET_April/Selenium/Selenium_Project_withMaven/src/test/java/testNGListeners/LoginTest.java">
         <classes>
-            <class name="myProjectInTestNG.OrangeHRMLoginTest">
+            <class name="testNGListeners.LoginTest">
                 <methods>
                     <include name="testValidLogin"/>
                     <include name="testInValidLogin"/>
