@@ -1,0 +1,10 @@
+Extent Reports:
+ --> third-party opensource HTML report library for Java to integrate with Selenium to generate interactive, static automation report.
+
+Components :
+    1. ExtentSparkReporter
+        --> configure the HTML file path,document title, custom themes(DARK/WHITE), generate the GUI
+    2. ExtentReports
+        --> Report specifications or common infomrations regarding the reports --> attaches the spark reporter
+    3. Extenttest
+        --> step wise test logs, status (pass/fail/skip) and attach screenshots

@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <listeners>
-        <listener class-name="testNGListeners.ExtentReportManager"></listener>
+        <listener class-name="testNGListeners.ExtentManager"></listener>
     </listeners>
     <test verbose="2" preserve-order="true"
           name="D:/SDET_April/Selenium/Selenium_Project_withMaven/src/test/java/testNGListeners/LoginTest.java">
