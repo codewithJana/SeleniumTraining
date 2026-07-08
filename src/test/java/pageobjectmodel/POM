@@ -1,0 +1,19 @@
+PageObjectModel(POM):
+ --> design pattern,where every webpages is represented as one Java class.
+
+ eg:https://www.saucedemo.com/
+ Pages:
+    Login Page --> enter username, password and click on login button --> LoginPage.java --> locators+behaviours
+    Product Page --> Products label verification  --> Product.java --> locators+behaviours
+ tests:
+    oneTestSuite --> TC1,TC2,TC3...
+
+ Real life:
+ TV Remote ---> Needs TV -->Remote doesnt create TV --> Remote controls TV
+ SauceTest:
+ LoginPage ---> Needs driver ---> Doesnt create driver -->uses the driver
+
+
+ PageFactory
+ --> it is a support class provided by selenium that helps to initialize web elements automatically
+     using annotations like "@FindBy"
